@@ -19,24 +19,19 @@ public class User {
 
     public void paySalary(){
         balance += salary;
-        System.out.println("New balance: "+balance);
+        System.out.println("New balance after salary: "+balance);
     }
 
     public void withdraw(int money){
-        int withdraw;
         if (money < 1000){
-            withdraw = (int) (money + money * 0.05);
-            if (balance >= withdraw){
-                balance -= withdraw;
-                System.out.println("Withdrawal: "+withdraw+" Balance: "+balance);
-            } else System.out.println("You haven't enough money");
+            money += money * 0.05;
         } else {
-            withdraw = (int) (money + money * 0.1);
-            if (balance >= withdraw){
-                balance -= withdraw;
-                System.out.println("Withdrawal: "+withdraw+" Balance: "+balance);
-            } else System.out.println("You haven't enough money");
+            money += money * 0.1;
         }
+        if (balance >= money) {
+            balance -= money;
+            System.out.println("Withdrawal: "+money+" Balance: "+balance);
+        } else System.out.println("You haven't enough money");
     }
 
     public void companyLenghtName(){
