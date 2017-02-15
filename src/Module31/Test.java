@@ -8,7 +8,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        testBird("fly");
+        testBird("I am walking");
     }
 
 }
