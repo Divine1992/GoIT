@@ -9,6 +9,9 @@ public class Test {
 
     public static void main(String[] args) {
         testBird("I am walking");
+        testBird("I am flying");
+        testBird("I am singing");
+        testBird("I am Bird");
     }
 
 }
