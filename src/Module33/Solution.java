@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Solution {
+    private static Course [] courses;
 
     public static void main(String[] args) {
         createAllObjects();
@@ -18,9 +19,9 @@ public class Solution {
     }
 
     private static void createSpecialStudents() {
+        SpecialStudent s = new SpecialStudent(100);
         SpecialStudent specialStudentHarry = new SpecialStudent("Harry", "Kaine", 321);
         SpecialStudent specialStudentCole = new SpecialStudent("Cole", selectCourses(3, 4), "Columbia Unv.", 245,124433);
-        SpecialStudent specialStudentKaine = new SpecialStudent("Kaine", selectCourses(1, 3), "Univ. of Oregon", 245,124433, 22314);
     }
 
     private static void createCollageStudent() {
@@ -43,25 +44,23 @@ public class Solution {
         Course javaScriptCourse = new Course("JavaScript", 55, "Mike Posner");
         Course uxCourse = new Course(dateStart.getTime(), "Frond-end-Developer Course");
         Course unixСourse = new Course("Nuclear by UNIX System", 120, "Elisha Cutberd");
-        Course [] allCourses = {javaCourse, javaScriptCourse, sqlCourse, unixСourse, uxCourse};
-        return allCourses;
+        courses = new Course[]{javaCourse, javaScriptCourse, sqlCourse, unixСourse, uxCourse};
+        return courses;
     }
 
-
     private static Course [] selectCourses(int idFirstCourse, int idLastCourse){
-        Course [] selectedCourses;
-        if (createCourses() != null) {
-            if (((idLastCourse - idFirstCourse) >= 0) && ((idLastCourse - idFirstCourse) < 5)) {
-                Course [] alreadyCreatedCourses = createCourses();
-                selectedCourses = new Course[idLastCourse - idFirstCourse + 1];
-                int i = 0;
-                while(idFirstCourse <= idLastCourse) {
-                    selectedCourses[i] = alreadyCreatedCourses[idFirstCourse];
-                    i++;
-                    idFirstCourse++;
-                }
-            } else throw new IllegalArgumentException();
-        } else throw new NullPointerException();
-        return selectedCourses;
+        if (courses == null) {
+            createCourses();
+        } else {
+            int i = 0;
+            Course [] selectedCourses = new Course[idLastCourse - idFirstCourse + 1];
+            while (idFirstCourse <= idLastCourse) {
+                selectedCourses[i] = courses[idFirstCourse];
+                i++;
+                idFirstCourse++;
+            }
+            return  selectedCourses;
+        }
+        throw new NullPointerException();
     }
 }
