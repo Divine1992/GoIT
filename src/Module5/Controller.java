@@ -23,21 +23,45 @@ public class Controller {
         return rooms;
     }
 
-    Room[] check(API api1, API api2) {
+    Room[] check(API api1, API api2)  {
         Room[] roomsResult = new Room[0];
-        APIImpl apiImpl1 = (APIImpl) api1;
-        APIImpl apiImpl2 = (APIImpl) api2;
-        for (int i = 0; i < apiImpl1.getDao().getAll().length; i++) {
-            for (int j = 0; j < apiImpl2.getDao().getAll().length; j++) {
-                if (apiImpl1.getDao().getAll()[i].equals(apiImpl2.getDao().getAll()[j])) {
-                    if (!(duplicateRoom(roomsResult, apiImpl1.getDao().getAll()[i]))) {
+        DAOImpl [] daoImpl = getImplAPI(api1,api2);
+        for (int i = 0; i < daoImpl[0].getAll().length; i++) {
+            for (int j = 0; j < daoImpl[1].getAll().length; j++) {
+                if (daoImpl[0].getAll()[i].equals(daoImpl[1].getAll()[j])) {
+                    if (!(duplicateRoom(roomsResult, daoImpl[0].getAll()[i]))) {
                         roomsResult = addRoom(roomsResult);
-                        roomsResult[roomsResult.length-1] = apiImpl1.getDao().getAll()[i];
+                        roomsResult[roomsResult.length - 1] = daoImpl[0].getAll()[i];
                     }
                 }
             }
         }
         return roomsResult;
+    }
+
+    private DAOImpl[] getImplAPI(API api1, API api2)  {
+        DAOImpl [] resultArray = new DAOImpl[2];
+        if (api1 instanceof BookingComAPI) {
+            BookingComAPI apiImpl1 = (BookingComAPI) api1;
+            resultArray[0] = (DAOImpl) apiImpl1.getDao();
+        } else if (api1 instanceof TripAdvisorAPI){
+            TripAdvisorAPI apiIml1 = (TripAdvisorAPI) api1;
+            resultArray[0] = (DAOImpl) apiIml1.getDao();
+        } else {
+            GoogleAPI apiImpl1 = (GoogleAPI) api1;
+            resultArray[0] = (DAOImpl) apiImpl1.getDao();
+        }
+        if (api2 instanceof BookingComAPI) {
+            BookingComAPI apiImpl2 = (BookingComAPI) api2;
+            resultArray[1] = (DAOImpl) apiImpl2.getDao();
+        } else if (api2 instanceof TripAdvisorAPI){
+            TripAdvisorAPI apiIml2 = (TripAdvisorAPI) api1;
+            resultArray[1] = (DAOImpl) apiIml2.getDao();
+        } else {
+            GoogleAPI apiImpl2 = (GoogleAPI) api2;
+            resultArray[1] = (DAOImpl) apiImpl2.getDao();
+        }
+        return resultArray;
     }
 
     private boolean duplicateRoom(Room [] roomsResult, Room room){
@@ -54,4 +78,5 @@ public class Controller {
         System.arraycopy(oldRooms, 0, rooms, 0, oldRooms.length);
         return rooms;
     }
+
 }
