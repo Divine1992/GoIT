@@ -1,6 +1,6 @@
 package Module6;
 
-public class User {
+public final class User {
     private long id;
     private String firstName;
     private String lastName;
