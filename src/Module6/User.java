@@ -1,10 +1,10 @@
 package Module6;
 
 public final class User {
-    private long id;
-    private String firstName;
-    private String lastName;
-    private int salary;
+    private final long id;
+    private final String firstName;
+    private final String lastName;
+    private final int salary;
     private int balance;
 
     public User(long id, String firstName, String lastName, int salary, int balance) {
@@ -38,32 +38,16 @@ public final class User {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public int getSalary() {
         return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
     }
 
     public int getBalance() {
