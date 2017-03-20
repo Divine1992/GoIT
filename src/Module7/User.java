@@ -1,12 +1,14 @@
 package Module7;
 
 public class User {
+    private long id;
     private String firstName;
     private String lastName;
     private String city;
     private int balance;
 
-    public User(String firstName, String lastName, String city, int balance) {
+    public User(long id, String firstName, String lastName, String city, int balance) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
@@ -29,6 +31,14 @@ public class User {
         result = 31 * result + city.hashCode();
         result = 31 * result + balance;
         return result;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

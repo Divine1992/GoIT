@@ -18,7 +18,6 @@ public class Order implements Comparable<Order>{
     }
 
     public Order(){
-
     }
 
     public Order(long id, int price, Currency currency, String itemName, String shopIdentificator, User user) {
