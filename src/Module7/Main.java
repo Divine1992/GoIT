@@ -36,13 +36,13 @@ public class Main {
         for (int i = 0; i < linkedList.size(); i++) {
             linkedList.remove(String.valueOf(i));
         }
-        System.out.println("String LinkedLIst remove 1000 elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("String LinkedLIst remove 1000 elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         long arrayTime = System.currentTimeMillis();
         arrayList = createArrayListString(1000);
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.remove(String.valueOf(i));
         }
-        System.out.println("String ArrayList remove 1000 elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("String ArrayList remove 1000 elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
         linkedList.clear();
         arrayList.clear();
         linkedTime = System.currentTimeMillis();
@@ -50,13 +50,13 @@ public class Main {
         for (int i = 0; i < linkedList.size(); i++) {
             linkedList.remove(String.valueOf(i));
         }
-        System.out.println("String LinkedLIst remove 10000 elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("String LinkedLIst remove 10000 elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         arrayTime = System.currentTimeMillis();
         arrayList = createArrayListString(10000);
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.remove(String.valueOf(i));
         }
-        System.out.println("String ArrayList remove 10000 elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("String ArrayList remove 10000 elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
     }
 
     static void compareRemoveInteger(){
@@ -67,13 +67,13 @@ public class Main {
         for (int i = 0; i < linkedList.size(); i++) {
             linkedList.remove(i);
         }
-        System.out.println("Integer LinkedLIst remove 1000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("Integer LinkedLIst remove 1000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         long arrayTime = System.currentTimeMillis();
         arrayList = createArrayListInteger(1000);
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.remove(i);
         }
-        System.out.println("Integer ArrayList remove 1000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("Integer ArrayList remove 1000  elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
         linkedList.clear();
         arrayList.clear();
         linkedTime = System.currentTimeMillis();
@@ -81,13 +81,13 @@ public class Main {
         for (int i = 0; i < linkedList.size(); i++) {
             linkedList.remove(i);
         }
-        System.out.println("Integer LinkedLIst remove 10000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("Integer LinkedLIst remove 10000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         arrayTime = System.currentTimeMillis();
         arrayList = createArrayListInteger(10000);
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.remove(i);
         }
-        System.out.println("Integer ArrayList remove 10000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("Integer ArrayList remove 10000  elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
     }
 
     static void compareGetString(){
@@ -98,13 +98,13 @@ public class Main {
         for (int i = 0; i < linkedList.size(); i++) {
             linkedList.get(i);
         }
-        System.out.println("String LinkedLIst get 1000 elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("String LinkedLIst get 1000 elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         long arrayTime = System.currentTimeMillis();
         arrayList = createArrayListString(1000);
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.get(i);
         }
-        System.out.println("String ArrayList get 1000 elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("String ArrayList get 1000 elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
         linkedList.clear();
         arrayList.clear();
         linkedTime = System.currentTimeMillis();
@@ -112,13 +112,13 @@ public class Main {
         for (int i = 0; i < linkedList.size(); i++) {
             linkedList.get(i);
         }
-        System.out.println("String LinkedLIst get 10000 elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("String LinkedLIst get 10000 elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         arrayTime = System.currentTimeMillis();
         arrayList = createArrayListString(10000);
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.get(i);
         }
-        System.out.println("String ArrayList get 10000 elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("String ArrayList get 10000 elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
     }
 
     static void compareGetInteger(){
@@ -129,13 +129,13 @@ public class Main {
         for (int i = 0; i < linkedList.size(); i++) {
             linkedList.get(i);
         }
-        System.out.println("Integer LinkedLIst get 1000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("Integer LinkedLIst get 1000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         long arrayTime = System.currentTimeMillis();
         arrayList = createArrayListInteger(1000);
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.get(i);
         }
-        System.out.println("Integer ArrayList get 1000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("Integer ArrayList get 1000  elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
         linkedList.clear();
         arrayList.clear();
         linkedTime = System.currentTimeMillis();
@@ -143,13 +143,13 @@ public class Main {
         for (int i = 0; i < linkedList.size(); i++) {
             linkedList.get(i);
         }
-        System.out.println("Integer LinkedLIst get 10000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("Integer LinkedLIst get 10000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         arrayTime = System.currentTimeMillis();
         arrayList = createArrayListInteger(10000);
         for (int i = 0; i < arrayList.size(); i++) {
             arrayList.get(i);
         }
-        System.out.println("Integer ArrayList get 10000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("Integer ArrayList get 10000  elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
     }
 
     static void compareSetString(){
@@ -160,13 +160,13 @@ public class Main {
         for (int i = 0; i < 999; i++) {
             linkedList.set(linkedList.size()-1,String.valueOf(i));
         }
-        System.out.println("String LinkedLIst set 1000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("String LinkedLIst set 1000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         long arrayTime = System.currentTimeMillis();
         arrayList = createArrayListString(1);
         for (int i = 0; i < 999; i++) {
             arrayList.set(arrayList.size()-1,String.valueOf(i));
         }
-        System.out.println("String ArrayList set 1000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("String ArrayList set 1000  elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
         linkedList.clear();
         arrayList.clear();
         linkedTime = System.currentTimeMillis();
@@ -174,13 +174,13 @@ public class Main {
         for (int i = 0; i < 9999; i++) {
             linkedList.set(linkedList.size()-1,String.valueOf(i));
         }
-        System.out.println("String LinkedLIst set 10000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("String LinkedLIst set 10000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         arrayTime = System.currentTimeMillis();
         arrayList = createArrayListString(1);
         for (int i = 0; i < 9999; i++) {
             arrayList.set(arrayList.size()-1,String.valueOf(i));
         }
-        System.out.println("String ArrayList set 10000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("String ArrayList set 10000  elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
     }
 
     static void compareSetInteger(){
@@ -191,13 +191,13 @@ public class Main {
         for (int i = 0; i < 999; i++) {
             linkedList.set(linkedList.size()-1,i);
         }
-        System.out.println("Integer LinkedLIst set 1000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("Integer LinkedLIst set 1000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         long arrayTime = System.currentTimeMillis();
         arrayList = createArrayListInteger(1);
         for (int i = 0; i < 999; i++) {
             arrayList.set(arrayList.size()-1,i);
         }
-        System.out.println("Integer ArrayList set 1000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("Integer ArrayList set 1000  elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
         linkedList.clear();
         arrayList.clear();
         linkedTime = System.currentTimeMillis();
@@ -205,13 +205,13 @@ public class Main {
         for (int i = 0; i < 9999; i++) {
             linkedList.set(linkedList.size()-1,i);
         }
-        System.out.println("Integer LinkedLIst set 10000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("Integer LinkedLIst set 10000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         arrayTime = System.currentTimeMillis();
         arrayList = createArrayListInteger(1);
         for (int i = 0; i < 9999; i++) {
             arrayList.set(arrayList.size()-1,i);
         }
-        System.out.println("Integer ArrayList set 10000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("Integer ArrayList set 10000  elements for %.3f sec\n", (System.currentTimeMillis()-arrayTime)/1000f);
     }
 
     static void compareAddString(){
@@ -219,18 +219,18 @@ public class Main {
         List<String> arrayList;
         long linkedTime = System.currentTimeMillis();
         linkedList = createLinkedListString(1000);
-        System.out.println("String LinkedLIst add 1000 elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("String LinkedLIst add 1000 elements for %.3f sec\n",(System.currentTimeMillis() - linkedTime)/1000f);
         long arrayTime = System.currentTimeMillis();
         arrayList = createArrayListString(1000);
-        System.out.println("String ArrayList add 1000 elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("String ArrayList add 1000 elements for %.3f sec\n",(System.currentTimeMillis()-arrayTime)/1000f);
         linkedList.clear();
         arrayList.clear();
         linkedTime = System.currentTimeMillis();
         linkedList = createLinkedListString(10000);
-        System.out.println("String LinkedLIst add 10000 elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("String LinkedLIst add 10000 elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         arrayTime = System.currentTimeMillis();
         arrayList = createArrayListString(10000);
-        System.out.println("String ArrayList add 10000 elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("String ArrayList add 10000 elements for %.3f sec\n",(System.currentTimeMillis()-arrayTime)/1000f);
     }
 
     static void compareAddInteger(){
@@ -238,18 +238,18 @@ public class Main {
         List<Integer> arrayList;
         long linkedTime = System.currentTimeMillis();
         linkedList = createLinkedListInteger(1000);
-        System.out.println("Integer LinkedLIst add 1000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("Integer LinkedLIst add 1000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         long arrayTime = System.currentTimeMillis();
         arrayList = createArrayListInteger(1000);
-        System.out.println("Integer ArrayList add 1000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("Integer ArrayList add 1000  elements for %.3f sec\n",(System.currentTimeMillis()-arrayTime)/1000f);
         linkedList.clear();
         arrayList.clear();
         linkedTime = System.currentTimeMillis();
         linkedList = createLinkedListInteger(10000);
-        System.out.println("Integer LinkedLIst add 10000  elements "+(System.currentTimeMillis() - linkedTime));
+        System.out.format("Integer LinkedLIst add 10000  elements for %.3f sec\n", (System.currentTimeMillis() - linkedTime)/1000f);
         arrayTime = System.currentTimeMillis();
         arrayList = createArrayListInteger(10000);
-        System.out.println("Integer ArrayList add 10000  elements "+(System.currentTimeMillis()-arrayTime));
+        System.out.format("Integer ArrayList add 10000  elements for %.3f sec\n",(System.currentTimeMillis()-arrayTime)/1000f);
     }
 
     static boolean checkUser(Set<Order> inputSet, String surname){
@@ -263,11 +263,11 @@ public class Main {
         return false;
     }
 
-    static Order largestPrice(Set<Order> inputSet){
+    static Order largestPrice(Set<Order> inputSet) {
         if (inputSet != null) {
             Order largestOrder = new Order();
             for (Order order : inputSet) {
-                if (order.getPrice()>largestOrder.getPrice()){
+                if (order.getPrice() > largestOrder.getPrice()) {
                     largestOrder = order;
                 }
             }
