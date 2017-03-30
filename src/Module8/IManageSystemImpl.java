@@ -4,6 +4,7 @@ import java.util.*;
 
 public class IManageSystemImpl implements IManageSystem<Food>{
     private Map<Food, Double> database = new LinkedHashMap<Food, Double>();
+    private static final Double DEFAULT_PRICE = 0.0;
 
     @Override
     public Food save(Food food, double price) {
@@ -13,13 +14,15 @@ public class IManageSystemImpl implements IManageSystem<Food>{
 
     @Override
     public Food save(Food food) {
-        database.put(food, 0.0);
+        database.put(food, DEFAULT_PRICE);
         return food;
     }
 
     @Override
     public void delete(Food food) {
-        database.remove(food);
+        if (database.remove(food) == null){
+            System.out.println("Can't delete "+food);
+        }
     }
 
     @Override
@@ -27,8 +30,11 @@ public class IManageSystemImpl implements IManageSystem<Food>{
         for (Iterator<Map.Entry<Food, Double>> iter = database.entrySet().iterator(); iter.hasNext();) {
             if (iter.next().getKey().getId() == id) {
                 iter.remove();
+                return;
             }
         }
+        System.out.println("Can't delete food with id = "+id);
+
     }
 
     @Override
@@ -38,13 +44,13 @@ public class IManageSystemImpl implements IManageSystem<Food>{
                 return food;
             }
         }
-        return new Food();
+        return null;
     }
 
     @Override
     public Double getPrice(Food food) {
         if (database.get(food) == null) {
-            return 0.0;
+            return null;
         }
         return database.get(food);
     }
@@ -68,10 +74,7 @@ public class IManageSystemImpl implements IManageSystem<Food>{
                 return o1.getKey().getName().compareTo(o2.getKey().getName());
             }
         });
-        database.clear();
-        for (Map.Entry<Food, Double> mapEntry: list) {
-            database.put(mapEntry.getKey(), mapEntry.getValue());
-        }
+        System.out.println("Product sorted by name: "+list);
     }
 
     @Override
@@ -83,10 +86,7 @@ public class IManageSystemImpl implements IManageSystem<Food>{
                 return o1.getValue().compareTo(o2.getValue());
             }
         });
-        database.clear();
-        for (Map.Entry<Food, Double> mapEntry: list) {
-            database.put(mapEntry.getKey(), mapEntry.getValue());
-        }
+        System.out.println("Product sorted by price: "+list);
     }
 }
 

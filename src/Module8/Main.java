@@ -16,9 +16,7 @@ public class Main {
 
     static void sortDatabase(){
         iManageSystem.printProductsSortedByPrice();
-        System.out.println("Sorted products by prices: "+iManageSystem.getPrices());
         iManageSystem.printProductsSortedByName();
-        System.out.println("Sorted products by names: "+iManageSystem.getProducts());
     }
 
     static void createManageSystem(){

@@ -9,9 +9,6 @@ public class Food {
         private Country country;
         private int expiration;
 
-        public Food() {
-        }
-
         public Food(String name, Country country, int expiration) {
             this.id = IdGenerator.generateId();
             this.name = name;
