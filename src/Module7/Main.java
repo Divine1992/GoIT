@@ -379,7 +379,7 @@ public class Main {
         }
     }
 
-    static List<Order> createListOrders() {
+    public static List<Order> createListOrders() {
         List<Order> resultOrders = new LinkedList<>();
         resultOrders.add(new Order(1, 1000, Order.Currency.USD, "Jeans", "P&B", new User(1,"Andy", "Sparrow", "Kiev", 1000)));
         resultOrders.add(new Order(2, 2000, Order.Currency.UAH, "Shirt", "Collins", new User(2,"Andy", "Sparrow", "Lviv", 1000)));
@@ -394,7 +394,7 @@ public class Main {
         return resultOrders;
     }
 
-    static Set<Order> createSetOrders() {
+    public static Set<Order> createSetOrders() {
         Set<Order> resultOrders = new TreeSet<>();
         resultOrders.add(new Order(1, 1000, Order.Currency.USD, "Jeans", "P&B", new User(1,"Andy", "Sparrow", "Kiev", 1000)));
         resultOrders.add(new Order(1, 1000, Order.Currency.USD, "Jeans", "P&B", new User(2,"Andy", "Sparrow", "Kiev", 1000)));
