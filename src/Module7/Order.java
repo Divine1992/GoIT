@@ -13,7 +13,7 @@ public class Order implements Comparable<Order>{
         return this.getId() > o.getId() ? 1 : -1;
     }
 
-    enum Currency {
+    public enum Currency {
         USD, UAH;
     }
 
