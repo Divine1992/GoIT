@@ -8,27 +8,19 @@ package Module9;
 public class Sort {
 
     public static void sortByRevertPrice(List <Order> orders){
-        if(orders == null){
-            return;
+        if(orders != null){
+            List<Order> resultList = orders;
+            resultList.sort(Comparator.comparing(Order::getPrice).reversed());
+            System.out.println("Revert price list: "+resultList);
         }
-        List<Order> resultList = new ArrayList<>(orders);
-        resultList.sort((Order o1,Order o2) -> -(o1.getPrice()-o2.getPrice()));
-        System.out.println("Revert price list: "+resultList);
     }
 
     public static void sortByPriceAndCity(List<Order> orders){
-        if(orders == null){
-            return;
+        if (orders != null){
+            List<Order> resultList = orders;
+            resultList.sort(Comparator.comparing(Order::getPrice).thenComparing(Comparator.comparing(o -> o.getUser().getCity())));
+            System.out.println("List sorted by price and city name: "+resultList);
         }
-        List<Order> resultList = new ArrayList<>(orders);
-        resultList.sort((Order o1,Order o2) -> {
-            int result = (o1.getPrice() - o2.getPrice());
-            if (result == 0){
-                return o1.getUser().getCity().compareTo(o2.getUser().getCity());
-            }
-            return result;
-        });
-        System.out.println("List sorted by price and city name: "+resultList);
     }
 
     public static void sortByItemShopCity(List<Order> orders){
@@ -61,14 +53,11 @@ public class Sort {
     }
 
     public static void uniqueCity(List<Order> orders){
-        List<List<Order>> resultList = new ArrayList<>();
-        Set<String> uniqueCity = new HashSet<>();
-        orders.stream().forEach(x -> uniqueCity.add(x.getUser().getCity()));
-        uniqueCity.stream().forEach(x -> {
-            List<Order> list = orders.stream().filter(y -> y.getUser().getCity().equals(x)).collect(Collectors.toList());
-            resultList.add(list);
-        });
-        System.out.println("Unique list of city's: "+resultList);
+        if(orders != null){
+            List<Order> resulList = orders;
+            Map<String, List<Order>> result = resulList.stream().collect(Collectors.groupingBy(o -> o.getUser().getCity()));
+            System.out.println("Unique list of city's: "+result);
+        }
     }
 
     public static void checkSurname(Set<Order> orders, String surname){
