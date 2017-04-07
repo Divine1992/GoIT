@@ -32,29 +32,24 @@ public class Sort {
     }
 
     public static void sortByItemShopCity(List<Order> orders){
-        if(orders == null){
-            return;
+        if(orders != null){
+            List resultList = new ArrayList<>(orders);
+            resultList.sort(Comparator.comparing(Order::getItemName).thenComparing(Order::getShopIdentificator)
+                    .thenComparing(Comparator.comparing(o -> o.getUser().getCity())));
+            System.out.println("Item, Shop and City sorting: "+resultList);
         }
-        List<Order> resultList = new ArrayList<>(orders);
-        resultList.sort((Order o1,Order o2) -> {
-            int result = o1.getItemName().compareTo(o2.getItemName());
-            if (result == 0) result = o1.getShopIdentificator().compareTo(o2.getShopIdentificator());
-            if (result == 0) result = o1.getUser().getCity().compareTo(o2.getUser().getCity());
-            return result;
-        });
-        System.out.println("Item, Shop and City sorting: "+resultList);
     }
 
     public static void deleteDuplicates(List<Order> orders){
         if (orders != null) {
-            System.out.println("Unique list: "+new LinkedList<Order>(new HashSet<Order>(orders)));
+            System.out.println("Unique list: "+orders.stream().distinct().collect(Collectors.toList()));
         }
     }
 
     public static void deleteOrdersByPriceLess(List<Order> orders, Integer price){
         List<Order> resultList = orders;
         System.out.println("List without price less than "+price+": "+resultList.stream().filter(x -> x.getPrice() >= price).collect(Collectors.toList()));
-    };
+    }
 
     public static void separateCurrency(List<Order> orders){
         List<List<Order>> resultList = new ArrayList<>();

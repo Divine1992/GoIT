@@ -18,7 +18,7 @@ public class Main {
         activityWithList(list, 1500);
         activityWithSet(set, "Petrov");
     }
-    
+
     static void activityWithList(List<Order> orders, Integer price){
         deleteDuplicates(orders);
         deleteOrdersByPriceLess(orders, price);
